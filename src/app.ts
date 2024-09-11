@@ -1,8 +1,6 @@
-import { UserController } from "./controllers/users.controller";
 import express, { Application, NextFunction, Request, Response } from "express";
 import { container } from "./utils/inversify.config";
-import "reflect-metadata"; // Make sure reflect-metadata is imported here
-
+import "reflect-metadata"; 
 class App {
     private app: Application;
     private port: number;
@@ -30,14 +28,13 @@ class App {
                 const method = (instance as any)[methodName];
                 const route = Reflect.getMetadata('route', method);
                 const httpMethod = Reflect.getMetadata('method', method);
-                const middlewares = Reflect.getMetadata('middlewares', method) || []; // Fetch middlewares
+                const middlewares = Reflect.getMetadata('middlewares', method) || []; 
     
                 if (route && httpMethod) {
                     console.log(`Binding route: [${httpMethod.toUpperCase()}] ${basePath}${route}`);
-                    // Bind the route with middlewares and the route handler
                     (this.app as any)[httpMethod](
                         `${basePath}${route}`, 
-                        ...middlewares, // Spread middlewares before the handler
+                        ...middlewares,
                         (req: Request, res: Response, next: NextFunction) => method.call(instance, req, res, next)
                     );
                 }

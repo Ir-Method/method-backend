@@ -12,7 +12,7 @@ export function Get(route: string, middlewares: any[] = []): MethodDecorator {
       if (descriptor?.value) {
         Reflect.defineMetadata('method', 'get', descriptor.value);
         Reflect.defineMetadata('route', route, descriptor.value);
-        Reflect.defineMetadata('middlewares', middlewares, descriptor.value); // Add middlewares
+        Reflect.defineMetadata('middlewares', middlewares, descriptor.value); 
       }
     };
   }
@@ -22,7 +22,7 @@ export function Get(route: string, middlewares: any[] = []): MethodDecorator {
       if (descriptor?.value) {
         Reflect.defineMetadata('method', 'post', descriptor.value);
         Reflect.defineMetadata('route', route, descriptor.value);
-        Reflect.defineMetadata('middlewares', middlewares, descriptor.value); // Add middlewares
+        Reflect.defineMetadata('middlewares', middlewares, descriptor.value);
       }
     };
   }
@@ -32,7 +32,7 @@ export function Get(route: string, middlewares: any[] = []): MethodDecorator {
       if (descriptor?.value) {
         Reflect.defineMetadata('method', 'put', descriptor.value);
         Reflect.defineMetadata('route', route, descriptor.value);
-        Reflect.defineMetadata('middlewares', middlewares, descriptor.value); // Add middlewares
+        Reflect.defineMetadata('middlewares', middlewares, descriptor.value); 
       }
     };
   }
@@ -42,7 +42,7 @@ export function Get(route: string, middlewares: any[] = []): MethodDecorator {
       if (descriptor?.value) {
         Reflect.defineMetadata('method', 'delete', descriptor.value);
         Reflect.defineMetadata('route', route, descriptor.value);
-        Reflect.defineMetadata('middlewares', middlewares, descriptor.value); // Add middlewares
+        Reflect.defineMetadata('middlewares', middlewares, descriptor.value);
       }
     };
   }
